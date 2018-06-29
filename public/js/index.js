@@ -30,13 +30,14 @@ jQuery('#message-form').on('submit', function (e) {
 
 var locationButton = jQuery('#send-location');
 locationButton.on('click', function () {
-  if (navigator.geolocation) {
+  if (!navigator.geolocation) {
     return alert('Geolocation not supported by your browser.')
   }
-
+  console.log(navigator);
   navigator.geolocation.getCurrentPosition(function (position) {
+    console.log('sadsada');
     console.log(position);
   }, function () {
     alert('Unable to fetch location.')
-  })
+  });
 });
